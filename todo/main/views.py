@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-def home_page(request):
-    return render(request, 'home.html')
+def landing(request):
+    context = {
+        "title": "Welcome to the To-Do List App"
+    }
+    return render(request, 'landing.html', context)
