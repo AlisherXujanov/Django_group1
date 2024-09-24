@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 # Create your models here.
@@ -16,3 +17,10 @@ class Todos(models.Model):
     color = models.CharField(max_length=20, default="#007bff", help_text="цвет текста") # цвет текста
     background_color = models.CharField(max_length=20, default="#f8f9fa", help_text="цвет фона") # 
     
+    
+    def __str__(self):
+        return f'{self.author.upper()}. Deadline: {self.deadline}. Importance: {self.importance}. Completed: {self.completed}'
+    
+    class Meta:
+        verbose_name = "ToDo"
+        verbose_name_plural = "ToDos"
